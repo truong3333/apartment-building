@@ -6,7 +6,6 @@ import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDate;
 
-@Entity
 @Data
 @Builder
 @AllArgsConstructor
