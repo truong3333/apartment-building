@@ -6,7 +6,7 @@ spring:
 #    url: ${SPRING_DATASOURCE_URL}
 #    username: ${SPRING_DATASOURCE_USERNAME}
 #    password: ${SPRING_DATASOURCE_PASSWORD}
-    url: mysql://root:gRsKHVsFNszbMuvGLKUZQaaSTzOiLCfG@mysql.railway.internal:3306/railway
+    url: jdbc:mysql://mysql.railway.internal:3306/railway?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
     username: root
     password: gRsKHVsFNszbMuvGLKUZQaaSTzOiLCfG
     driverClassName: "com.mysql.cj.jdbc.Driver"
