@@ -16,5 +16,17 @@ spring:
       ddl-auto: update
     show-sql: false
 
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: truong0962935943@gmail.com
+    password: bueq rtjd ghst qvdn
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
 jwt:
   signerKey: "QU+SwOanBr5XdqvBrRMEu07JkXekyENmTcEpklJ2hSB3QjE/hicft/WwBl1JK+v/"
