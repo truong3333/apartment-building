@@ -164,7 +164,7 @@ public class ApartmentHistoryService {
 
     @PreAuthorize("hasRole('ADMIN')")
     public String update(ApartmentHistoryRequest request){
-        ApartmentHistory apartmentHistory = apartmentHistoryRepository.findByApartment_RoomNumberAndUser_Username(request.getRoomNumber(),request.getUsername()).orElseThrow(() -> {
+        ApartmentHistory apartmentHistory = apartmentHistoryRepository.findByApartment_RoomNumberAndUser_UsernameAndStatus(request.getRoomNumber(),request.getUsername(),"action").orElseThrow(() -> {
             log.error("Apartment history not existed, update failed.");
             throw new AppException(ErrorCode.APARTMENT_HISTORY_NOT_EXISTED);
         });
@@ -175,7 +175,7 @@ public class ApartmentHistoryService {
         }
 
         apartmentHistory.setRepresentative(request.isRepresentative());
-        if(apartmentHistory.getEndDate() != null){
+        if(request.getEndDate() != null){
             apartmentHistory.setEndDate(request.getEndDate());
             apartmentHistory.setRepresentative(false);
         }

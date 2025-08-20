@@ -17,7 +17,7 @@ public interface ApartmentHistoryRepository extends JpaRepository<ApartmentHisto
     List<ApartmentHistory> findAllByIsRepresentativeTrue();
     boolean existsByApartment_RoomNumberAndIsRepresentativeTrue(String roomNumber);
     boolean existsByApartment_RoomNumberAndUser_UsernameAndStatus(String roomnumber,String username,String status);
-    Optional<ApartmentHistory> findByApartment_RoomNumberAndUser_Username(String roomNumber,String username);
+    Optional<ApartmentHistory> findByApartment_RoomNumberAndUser_UsernameAndStatus(String roomNumber,String username,String status);
     Optional<ApartmentHistory> findByApartment_RoomNumberAndIsRepresentativeTrue(String roomNumber);
 
     @Query("SELECT ah FROM ApartmentHistory ah " +
