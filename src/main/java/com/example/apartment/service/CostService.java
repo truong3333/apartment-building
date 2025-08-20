@@ -65,6 +65,7 @@ public class CostService {
 
         return listCost.stream().map(cost ->
                 CostResponse.builder()
+                        .id(cost.getId())
                         .type(cost.getType())
                         .description(cost.getDescription())
                         .amount(cost.getAmount())

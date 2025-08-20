@@ -83,6 +83,7 @@ public class MonthlyCostService {
                         .statusPayment(monthlyCost.getStatusPayment())
                         .listCost(monthlyCost.getListCost().stream().map(cost ->
                                 CostResponse.builder()
+                                        .id(cost.getId())
                                         .type(cost.getType())
                                         .description(cost.getDescription())
                                         .amount(cost.getAmount())
@@ -109,6 +110,7 @@ public class MonthlyCostService {
                         .statusPayment(monthlyCost.getStatusPayment())
                         .listCost(monthlyCost.getListCost().stream().map(cost ->
                                 CostResponse.builder()
+                                        .id(cost.getId())
                                         .type(cost.getType())
                                         .description(cost.getDescription())
                                         .amount(cost.getAmount())
@@ -134,6 +136,7 @@ public class MonthlyCostService {
                         .statusPayment(monthlyCost.getStatusPayment())
                         .listCost(monthlyCost.getListCost().stream().map(cost ->
                                 CostResponse.builder()
+                                        .id(cost.getId())
                                         .type(cost.getType())
                                         .description(cost.getDescription())
                                         .amount(cost.getAmount())

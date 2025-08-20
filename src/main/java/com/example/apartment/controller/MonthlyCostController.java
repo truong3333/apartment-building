@@ -43,10 +43,10 @@ public class MonthlyCostController {
     }
 
     @GetMapping("/myMonthlyCost")
-    ApiResponses<List<MonthlyCostResponse>> getAllByUsername(@Parameter(description = "Username")@PathVariable String username) {
+    ApiResponses<List<MonthlyCostResponse>> getAllByUsername() {
         return ApiResponses.<List<MonthlyCostResponse>>builder()
                 .code(1000)
-                .result(monthlyCostService.getAllByRoomNumber(username))
+                .result(monthlyCostService.getByUsername())
                 .build();
     }
 
