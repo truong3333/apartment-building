@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class ReportResponse {
-
+    String id;
     String username;
     String roomNumber;
     String description;
