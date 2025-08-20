@@ -103,7 +103,7 @@ public class StatisticsService {
         return StatisticsResponse.builder()
                 .totalApartment(apartmentRepository.count())
                 .apartmentUsage(roomUsage.size())
-                .apartmentUsageRate(((double) (roomUsage.size()/apartmentHistoryRepository.count()) * 10000.0) /100.0)
+                .apartmentUsageRate(((double) roomUsage.size()/apartmentHistoryRepository.count() * 10000.0) /100.0)
                 .userInSize(userIn.size())
                 .userOutSize(userOut.size())
                 .listUserIn(listUserIn)
@@ -111,11 +111,11 @@ public class StatisticsService {
                 .totalAmount(monthlyCostRepository.sumTotalAmountByMonthAndYear(request.getMonth(), request.getYear()))
                 .totalReport(listReport.size())
                 .reportStatusDone(countReportDone)
-                .reportDoneRate(((double) (countReportDone/listReport.size()) * 10000.0) / 100.0)
+                .reportDoneRate(((double) countReportDone/listReport.size() * 10000.0) / 100.0)
                 .build();
     }
 
-    @PreAuthorize("hasRole('ADMIN)")
+    @PreAuthorize("hasRole('ADMIN')")
     public DashBoardResponse getDashBoard(){
         StatisticsRequest request = StatisticsRequest.builder()
                 .month(LocalDate.now().getMonthValue())

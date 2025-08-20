@@ -5,6 +5,7 @@ import com.example.apartment.domain.dto.response.DashBoardResponse;
 import com.example.apartment.service.StatisticsService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RequestMapping("api/v1/dashboard")
 @FieldDefaults(level = AccessLevel.PRIVATE,makeFinal = true)
+@Tag(name = "DashBoard", description = "Trang chủ")
 public class DashBoardController {
     StatisticsService statisticsService;
 
