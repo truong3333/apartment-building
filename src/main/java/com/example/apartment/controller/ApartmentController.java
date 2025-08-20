@@ -62,6 +62,15 @@ public class ApartmentController {
                 .build();
     }
 
+    @Operation(summary = "Sửa căn hộ", description = "Sửa căn hộ theo số phòng")
+    @ApiResponse(responseCode = "200", description = "Sửa thành công")
+    @PutMapping("/{roomNumber}")
+    ApiResponses<String> updateApartment(@Parameter(description = "Số phòng") @PathVariable String roomNumber, @RequestBody ApartmentRequest request){
+        return ApiResponses.<String>builder()
+                .result(apartmentService.update(roomNumber, request))
+                .build();
+    }
+
     @Operation(summary = "Xóa căn hộ", description = "Xóa căn hộ theo số phòng")
     @ApiResponse(responseCode = "200", description = "Xóa căn hộ thành công")
     @DeleteMapping("/{roomNumber}")
