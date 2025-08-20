@@ -46,9 +46,18 @@ public class UserController {
                 .build();
     }
 
+    @Operation(summary = "Lấy thông tin người dùng", description = "Lấy thông tin người dùng băng username ",security = @SecurityRequirement(name = "bearerAuth"))
+    @ApiResponse(responseCode = "200", description = "Thông tin người dùng")
+    @GetMapping("/{username}")
+    ApiResponses<UserResponseForAdmin> getByUsername(@Parameter(description = "Username") @PathVariable String username){
+        return ApiResponses.<UserResponseForAdmin>builder()
+                .result(userService.getByUsername(username))
+                .build();
+    }
+
     @Operation(summary = "Xem profile", description = "Xem profile ",security = @SecurityRequirement(name = "bearerAuth"))
     @ApiResponse(responseCode = "200", description = "profile")
-    @GetMapping("/{myInfo}")
+    @GetMapping("/myInfo")
     ApiResponses<UserResponseForAdmin> getMyInfo(){
         return ApiResponses.<UserResponseForAdmin>builder()
                 .result(userService.getMyInfo())
