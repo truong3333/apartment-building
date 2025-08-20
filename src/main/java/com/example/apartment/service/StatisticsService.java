@@ -103,7 +103,7 @@ public class StatisticsService {
         return StatisticsResponse.builder()
                 .totalApartment(apartmentRepository.count())
                 .apartmentUsage(roomUsage.size())
-                .apartmentUsageRate(((double) roomUsage.size()/apartmentHistoryRepository.count() * 10000.0) /100.0)
+                .apartmentUsageRate(((double) roomUsage.size()/apartmentRepository.count() * 10000.0) /100.0)
                 .userInSize(userIn.size())
                 .userOutSize(userOut.size())
                 .listUserIn(listUserIn)

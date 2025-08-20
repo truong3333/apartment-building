@@ -5,6 +5,7 @@ import com.example.apartment.domain.dto.response.DashBoardResponse;
 import com.example.apartment.service.StatisticsService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@SecurityRequirement(name = "bearerAuth")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("api/v1/dashboard")
