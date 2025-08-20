@@ -19,7 +19,7 @@ import java.util.List;
 @SecurityRequirement(name = "bearerAuth")
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/report")
+@RequestMapping("/api/v1/report")
 @FieldDefaults(level = AccessLevel.PRIVATE,makeFinal = true)
 @Tag(name = "Report", description = "Quản lý yêu cầu")
 public class ReportController {
