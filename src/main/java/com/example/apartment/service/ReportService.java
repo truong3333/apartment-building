@@ -58,6 +58,7 @@ public class ReportService {
 
         log.info("Get all reflict successfully");
         return listReport.stream().map(report -> ReportResponse.builder()
+                .id(report.getId())
                 .username(report.getUsername())
                 .roomNumber(report.getRoomNumber())
                 .description(report.getDescription())
