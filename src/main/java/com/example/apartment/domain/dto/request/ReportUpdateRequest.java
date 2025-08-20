@@ -12,5 +12,5 @@ import java.time.LocalDate;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class ReportUpdateRequest {
 
-    LocalDate endDate;
+    LocalDate dateEnd;
 }

@@ -15,7 +15,7 @@ public class ReportResponse {
     String username;
     String roomNumber;
     String description;
-    LocalDate createDate;
-    LocalDate endDate;
+    LocalDate dateCreate;
+    LocalDate dateEnd;
     String status;
 }

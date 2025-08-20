@@ -42,8 +42,8 @@ public class ReportService {
                 .username(username)
                 .roomNumber(request.getRoomNumber())
                 .description(request.getDescription())
-                .createDate(LocalDate.now())
-                .endDate(null)
+                .dateCreate(LocalDate.now())
+                .dateEnd(null)
                 .status("wait")
                 .build();
 
@@ -61,8 +61,8 @@ public class ReportService {
                 .username(report.getUsername())
                 .roomNumber(report.getRoomNumber())
                 .description(report.getDescription())
-                .createDate(report.getCreateDate())
-                .endDate(report.getEndDate())
+                .dateCreate(report.getDateCreate())
+                .dateEnd(report.getDateEnd())
                 .status(report.getStatus())
                 .build()
         ).toList();
@@ -77,8 +77,8 @@ public class ReportService {
                 .username(report.getUsername())
                 .roomNumber(report.getRoomNumber())
                 .description(report.getDescription())
-                .createDate(report.getCreateDate())
-                .endDate(report.getEndDate())
+                .dateCreate(report.getDateCreate())
+                .dateEnd(report.getDateEnd())
                 .status(report.getStatus())
                 .build()
         ).toList();
@@ -94,8 +94,8 @@ public class ReportService {
                 .username(report.getUsername())
                 .roomNumber(report.getRoomNumber())
                 .description(report.getDescription())
-                .createDate(report.getCreateDate())
-                .endDate(report.getEndDate())
+                .dateCreate(report.getDateCreate())
+                .dateEnd(report.getDateEnd())
                 .status(report.getStatus())
                 .build()
         ).toList();
@@ -108,8 +108,8 @@ public class ReportService {
             throw new AppException(ErrorCode.REPORT_NOT_EXISTED);
         });
 
-        if(request.getEndDate() != null){
-            report.setEndDate(request.getEndDate());
+        if(request.getDateEnd() != null){
+            report.setDateEnd(request.getDateEnd());
             report.setStatus("done");
         }
 
