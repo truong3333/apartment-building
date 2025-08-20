@@ -14,8 +14,8 @@ public interface ReportRepository extends JpaRepository<Report,String> {
     List<Report> findAllByRoomNumber(String roomNumber);
 
     @Query("SELECT r FROM Report r " +
-            "WHERE FUNCTION('MONTH', r.createDate) = :month " +
-            "AND FUNCTION('YEAR', r.createDate) = :year")
+            "WHERE FUNCTION('MONTH', r.dateCreate) = :month " +
+            "AND FUNCTION('YEAR', r.dateCreate) = :year")
     List<Report> findAllByMonthAndYear(@Param("month") int month,
                                                  @Param("year") int year);
 }
