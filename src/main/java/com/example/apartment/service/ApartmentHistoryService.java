@@ -178,6 +178,7 @@ public class ApartmentHistoryService {
         if(request.getEndDate() != null){
             apartmentHistory.setEndDate(request.getEndDate());
             apartmentHistory.setRepresentative(false);
+            apartmentHistory.setStatus("leave");
         }
 
         apartmentHistoryRepository.save(apartmentHistory);
