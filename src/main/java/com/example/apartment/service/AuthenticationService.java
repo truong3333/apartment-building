@@ -71,7 +71,7 @@ public class AuthenticationService {
 
         try {
             jwsObject.sign(new MACSigner(signerKey.getBytes()));
-            log.info("generate Token successfully!");
+            log.info("Username: {} login successfully", user.getUsername());
             return jwsObject.serialize();
         } catch (JOSEException e) {
             log.info("generate Token failed!");

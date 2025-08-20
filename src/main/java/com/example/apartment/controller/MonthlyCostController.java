@@ -50,6 +50,14 @@ public class MonthlyCostController {
                 .build();
     }
 
+    @GetMapping
+    ApiResponses<List<MonthlyCostResponse>> getAll() {
+        return ApiResponses.<List<MonthlyCostResponse>>builder()
+                .code(1000)
+                .result(monthlyCostService.getAll())
+                .build();
+    }
+
     @PutMapping
     ApiResponses<String> updateMonthlyCost(@RequestBody MonthlyCostUpdateRequest request) {
         return ApiResponses.<String>builder()

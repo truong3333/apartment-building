@@ -15,7 +15,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Reflict {
+public class Report {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

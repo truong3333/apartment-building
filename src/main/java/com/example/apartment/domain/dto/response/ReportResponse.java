@@ -1,4 +1,4 @@
-package com.example.apartment.domain.dto.request;
+package com.example.apartment.domain.dto.response;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -10,7 +10,12 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class ReflictUpdateRequest {
+public class ReportResponse {
 
+    String username;
+    String roomNumber;
+    String description;
+    LocalDate createDate;
     LocalDate endDate;
+    String status;
 }

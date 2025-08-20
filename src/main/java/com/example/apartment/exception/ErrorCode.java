@@ -31,7 +31,7 @@ public enum ErrorCode {
     MONTHLY_COST_EXISTED(1022,"Monthly cost exists.",HttpStatus.BAD_REQUEST),
     MONTHLY_COST_NULL(1023,"List monthly cost is empty.",HttpStatus.BAD_REQUEST),
     NOT_IN_APARTMENT(1024,"You are not in this room or have left before.",HttpStatus.BAD_REQUEST),
-    REFLICT_NOT_EXISTED(1025,"Reflic not existed", HttpStatus.NOT_FOUND),
+    REPORT_NOT_EXISTED(1025,"Report not existed", HttpStatus.NOT_FOUND),
     ISREPRESENTATIVE_NOT_EXISTED(1026,"Apartment not exists representative", HttpStatus.NOT_FOUND),;
 
     private int code;
