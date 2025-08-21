@@ -165,7 +165,7 @@ public class UserService {
                 .build();
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN','RESIDENT')")
 //    @CacheEvict(value = "users", key = "#userId")
     public String updateUser(String username,UserUpdateRequest request){
 
