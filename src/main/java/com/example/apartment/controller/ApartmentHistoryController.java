@@ -54,7 +54,7 @@ public class ApartmentHistoryController {
 
     @Operation(summary = "Lấy danh sách lịch sử căn hộ", description = "Lấy tất cả lịch sử cư dân của các căn hộ")
     @ApiResponse(responseCode = "200", description = "Danh sách lịch sử căn hộ")
-    @GetMapping("/myApartmentHistory")
+    @GetMapping("/users/{username}")
     ApiResponses<List<ApartmentHistoryResponse>> getAllApartmentHistoryByUsername(@Parameter (description = "Username") @PathVariable String username){
         return ApiResponses.<List<ApartmentHistoryResponse>>builder()
                 .result(apartmentHistoryService.getAllOfUsername(username))

@@ -145,7 +145,7 @@ public class StatisticsService {
                 .apartmentUsage(statisticsResponse.getApartmentUsage())
                 .apartmentUsageRate(statisticsResponse.getApartmentUsageRate())
                 .residentAction(apartmentHistoryRepository.countResidentAction())
-                .reportWait(statisticsResponse.getTotalReport() - statisticsResponse.getReportStatusDone())
+                .reportWait(reportRepository.findAllByStatus("wait").size())
                 .build();
     }
 }

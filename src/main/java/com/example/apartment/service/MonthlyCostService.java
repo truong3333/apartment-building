@@ -121,7 +121,7 @@ public class MonthlyCostService {
     @PreAuthorize("hasRole('RESIDENT')")
     public List<MonthlyCostResponse> getByUsername(){
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
-
+     
         List<ApartmentHistory> listApartmentHistory = new ArrayList<>(apartmentHistoryRepository.findAllByUser_UsernameAndStatus(username,"action"));
         List<MonthlyCost> listMonthlyCost= new ArrayList<>();
         for(ApartmentHistory ah : listApartmentHistory){

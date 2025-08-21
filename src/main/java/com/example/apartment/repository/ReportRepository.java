@@ -12,6 +12,7 @@ import java.util.List;
 public interface ReportRepository extends JpaRepository<Report,String> {
     List<Report> findAllByUsername(String username);
     List<Report> findAllByRoomNumber(String roomNumber);
+    List<Report> findAllByStatus(String status);
 
     @Query("SELECT r FROM Report r " +
             "WHERE FUNCTION('MONTH', r.dateCreate) = :month " +
