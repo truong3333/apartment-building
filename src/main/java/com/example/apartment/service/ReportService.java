@@ -31,14 +31,13 @@ public class ReportService {
     @PreAuthorize("hasRole('RESIDENT')")
     public String create(ReportRequest request){
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        log.info("Room: {}, Username from token: {}, Status: action", request.getRoomNumber(), username);
 
         if(!apartmentHistoryRepository.existsByApartment_RoomNumberAndUser_UsernameAndStatus(request.getRoomNumber(),username,"action")){
-            log.error("You are not in this room or have left before.");
+            log.error("User: {} you are not in this room or have left before,create report failed", username);
             throw new AppException(ErrorCode.NOT_IN_APARTMENT);
         }
 
-        log.info("Reflict of user: {} create successfully", username);
+        log.info("Report of user: {} create successfully", username);
         Report report = Report.builder()
                 .username(username)
                 .roomNumber(request.getRoomNumber())

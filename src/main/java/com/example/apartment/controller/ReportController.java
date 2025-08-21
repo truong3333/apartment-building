@@ -28,7 +28,7 @@ public class ReportController {
     @Operation(summary = "Tạo yêu cầu ", description = "Tạo yêu cầu mới")
     @ApiResponse(responseCode = "200", description = "Tạo yêu cầu thành công")
     @PostMapping
-    ApiResponses<String> createReport(ReportRequest request){
+    ApiResponses<String> createReport(@RequestBody ReportRequest request){
         return ApiResponses.<String>builder()
                 .result(reportService.create(request))
                 .build();
