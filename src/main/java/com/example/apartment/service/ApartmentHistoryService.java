@@ -53,7 +53,7 @@ public class ApartmentHistoryService {
         }
 
         if(apartmentHistoryRepository.existsByApartment_RoomNumberAndUser_UsernameAndStatus(request.getRoomNumber(),request.getUsername(),"action")){
-            log.error("Resident already existed in apartment, create apartment history failed.");
+            log.error("Resident: {} already existed in apartment, create apartment history failed.", request.getUsername());
             throw new AppException(ErrorCode.APARTMENT_HISTORY_EXISTED);
         }
 
@@ -62,7 +62,7 @@ public class ApartmentHistoryService {
                 .user(user)
                 .isRepresentative(request.isRepresentative())
                 .startDate(request.getStartDate())
-                .endDate(request.getEndDate())
+                .endDate(null)
                 .status("action")
                 .build();
 

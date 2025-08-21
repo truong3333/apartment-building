@@ -31,6 +31,7 @@ public class ReportService {
     @PreAuthorize("hasRole('RESIDENT')")
     public String create(ReportRequest request){
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        log.info("Room: {}, Username from token: {}, Status: action", request.getRoomNumber(), username);
 
         if(!apartmentHistoryRepository.existsByApartment_RoomNumberAndUser_UsernameAndStatus(request.getRoomNumber(),username,"action")){
             log.error("You are not in this room or have left before.");
