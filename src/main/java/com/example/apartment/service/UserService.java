@@ -169,7 +169,6 @@ public class UserService {
 //    @CacheEvict(value = "users", key = "#userId")
     public String updateUser(String username,UserUpdateRequest request){
 
-
         User user = userRepository.findByUsername(username).orElseThrow(() -> {
             log.error("User with ID: {} not found, update User failed!", username);
             throw new AppException(ErrorCode.USER_NOT_EXISTED);
@@ -179,7 +178,8 @@ public class UserService {
         UserDetail userDetail = user.getUserDetail();
 
         if(request.getPassword() != null){
-            user.setPassword(passwordEncoder.encode(request.getPassword()));
+            if(passwordEncoder.matches(request.getOldPassword(),user.getPassword()))
+                user.setPassword(passwordEncoder.encode(request.getPassword()));
         } else{
             user.setPassword(user.getPassword());
         }
