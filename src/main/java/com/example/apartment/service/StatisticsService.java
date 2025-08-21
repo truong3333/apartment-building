@@ -1,6 +1,7 @@
 package com.example.apartment.service;
 
 import com.example.apartment.domain.dto.request.StatisticsRequest;
+import com.example.apartment.domain.dto.response.ApartmentHistoryResponse;
 import com.example.apartment.domain.dto.response.DashBoardResponse;
 import com.example.apartment.domain.dto.response.StatisticsResponse;
 import com.example.apartment.domain.dto.response.UserResponseForAdmin;
@@ -41,41 +42,57 @@ public class StatisticsService {
 
         int countReportDone = 0;
 
-        List<UserResponseForAdmin> listUserIn = new ArrayList<>();
-        List<UserResponseForAdmin> listUserOut = new ArrayList<>();
+        List<ApartmentHistoryResponse> listUserIn = new ArrayList<>();
+        List<ApartmentHistoryResponse> listUserOut = new ArrayList<>();
 
         List<ApartmentHistory> listApartmentHistory = new ArrayList<>(apartmentHistoryRepository.findAllByMonthAndYear(request.getMonth(), request.getYear()));
         for(ApartmentHistory ah : listApartmentHistory){
             userIn.add(ah.getUser().getUsername());
 
-            UserResponseForAdmin userInResponse = UserResponseForAdmin.builder()
-                    .username(ah.getUser().getUsername())
-                    .fullName(ah.getUser().getUserDetail().getFullName())
-                    .email(ah.getUser().getUserDetail().getEmail())
-                    .phone(ah.getUser().getUserDetail().getPhone())
-                    .cmnd(ah.getUser().getUserDetail().getCmnd())
-                    .address(ah.getUser().getUserDetail().getAddress())
-                    .gender(ah.getUser().getUserDetail().getGender())
-                    .dob(ah.getUser().getUserDetail().getDob())
-                    .build();
-
-            listUserIn.add(userInResponse);
+            listUserIn.add(ApartmentHistoryResponse.builder()
+                    .roomNumber(ah.getApartment().getRoomNumber())
+                    .userResponse(
+                            UserResponseForAdmin.builder()
+                                    .username(ah.getUser().getUsername())
+                                    .fullName(ah.getUser().getUserDetail().getFullName())
+                                    .email(ah.getUser().getUserDetail().getEmail())
+                                    .phone(ah.getUser().getUserDetail().getPhone())
+                                    .cmnd(ah.getUser().getUserDetail().getCmnd())
+                                    .address(ah.getUser().getUserDetail().getAddress())
+                                    .gender(ah.getUser().getUserDetail().getGender())
+                                    .dob(ah.getUser().getUserDetail().getDob())
+                                    .build()
+                    )
+                    .isRepresentative(ah.isRepresentative())
+                    .startDate(ah.getStartDate())
+                    .endDate(ah.getEndDate())
+                    .status(ah.getStatus())
+                    .build()
+            );
 
             if(ah.getEndDate() != null && ah.getEndDate().getMonthValue() == request.getMonth()){
                 userOut.add(ah.getUser().getUsername());
 
-                UserResponseForAdmin userOutResponse = UserResponseForAdmin.builder()
-                        .username(ah.getUser().getUsername())
-                        .fullName(ah.getUser().getUserDetail().getFullName())
-                        .email(ah.getUser().getUserDetail().getEmail())
-                        .phone(ah.getUser().getUserDetail().getPhone())
-                        .cmnd(ah.getUser().getUserDetail().getCmnd())
-                        .address(ah.getUser().getUserDetail().getAddress())
-                        .gender(ah.getUser().getUserDetail().getGender())
-                        .dob(ah.getUser().getUserDetail().getDob())
-                        .build();
-
-                listUserOut.add(userOutResponse);
+                listUserOut.add(ApartmentHistoryResponse.builder()
+                                .roomNumber(ah.getApartment().getRoomNumber())
+                                .userResponse(
+                                        UserResponseForAdmin.builder()
+                                                .username(ah.getUser().getUsername())
+                                                .fullName(ah.getUser().getUserDetail().getFullName())
+                                                .email(ah.getUser().getUserDetail().getEmail())
+                                                .phone(ah.getUser().getUserDetail().getPhone())
+                                                .cmnd(ah.getUser().getUserDetail().getCmnd())
+                                                .address(ah.getUser().getUserDetail().getAddress())
+                                                .gender(ah.getUser().getUserDetail().getGender())
+                                                .dob(ah.getUser().getUserDetail().getDob())
+                                                .build()
+                                        )
+                        .isRepresentative(ah.isRepresentative())
+                        .startDate(ah.getStartDate())
+                        .endDate(ah.getEndDate())
+                        .status(ah.getStatus())
+                        .build()
+                );
             }
 
         }

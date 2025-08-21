@@ -19,8 +19,8 @@ public class StatisticsResponse {
 
     int userInSize;
     int userOutSize;
-    List<UserResponseForAdmin> listUserIn = new ArrayList<>();
-    List<UserResponseForAdmin> listUserOut = new ArrayList<>();
+    List<ApartmentHistoryResponse> listUserIn = new ArrayList<>();
+    List<ApartmentHistoryResponse> listUserOut = new ArrayList<>();
 
     long totalAmount;
 
